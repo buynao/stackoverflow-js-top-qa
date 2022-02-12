@@ -1,4 +1,4 @@
-## 问题
+## “use strict”在 JavaScript 中做了什么，背后的原因是什么？
 
 最近，我通过 Crockford 的 JSLint 运行了我的一些 JavaScript 代码。 ，它给出了以下错误:
 
@@ -14,7 +14,7 @@ Problem at line 1 character 1: Missing "use strict" statement.
 
 当前浏览器会对这个字符串 `use strict` 有反应，还是将来才会使用？
 
-## 最佳答案:
+## 最佳答案
 
 ### ES6 最新更新
 
