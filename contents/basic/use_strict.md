@@ -1,4 +1,4 @@
-## 问题：
+## 问题
 
 最近，我通过 Crockford 的 JSLint 运行了我的一些 JavaScript 代码。 ，它给出了以下错误:
 
@@ -99,3 +99,7 @@ Problem at line 1 character 1: Missing "use strict" statement.
 - 禁止以任何形式绑定或分配名称 `eval` 和 `arguments`
 - 不以形式参数来别名参数对象的属性。(例如，在函数 `sum (a,b) { return arguments[0] + b;}` 中。这样做是因为 `arguments[0]` 被绑定到 `a`，以此类推。)
 - `arguments.callee` 不再得到支持
+
+---
+
+来源：[https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it](https://stackoverflow.com/questions/1335851/what-does-use-strict-do-in-javascript-and-what-is-the-reasoning-behind-it)
