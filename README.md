@@ -19,6 +19,7 @@
 
 - [“use strict”在 JavaScript 中做了什么，背后的原因是什么？ - 2009年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/use_strict.md)
 - [JavaScript 闭包是如何工作的？ - 2009年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/closures.md)
+- [sleep() 的 JavaScript 版本是什么 - 2010](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/sleep.md)
 
 > 进阶
 
