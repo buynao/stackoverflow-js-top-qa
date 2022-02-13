@@ -15,7 +15,7 @@ string = string.ToUpperCase(); // New memory allocated for "HELLO WORLD"
 
 ```
 
-`HELLO WORLD` 的新内存分配在哪里？它在 `堆栈` 中是因为它是原始的吗？还是因为 `JS` 在运行代码之前不知道它的值，所以它在堆中？
+`HELLO WORLD` 的新内存分配在哪里？它在 `堆栈` 中是因为它是原始的吗？还是因为 `JS` 在运行代码之前不知道它的值，所以它在 `堆` 中？
 
 如果它在 `堆栈` 中，那么旧的`“Hello World”`会发生什么？
 由于只有 `堆` 被垃圾收集，这是否意味着旧的、未使用的字符串将保留在那里直到程序完成运行？
@@ -34,7 +34,7 @@ string = string.repeat(10000000000)
 
 先说结论，答案因 `JS引擎` 而异，`JS 规范` 并没有对内存分配做出要求。
 
-如果/当你的堆栈用完了，就担心堆栈用完的问题。这对你的代码来说真的不重要。
+你没必要就担心 `堆栈` 用完的问题。这对你的代码来说真的不重要。
 
 `JavaScript` 的规范并不要求实现者做一件事或另一件事。它描述的是行为，而不是该行为的实现。
 
@@ -44,9 +44,9 @@ string = string.repeat(10000000000)
 
 也许它是根据寿命来决定的。
 
-也许它会把一个只在函数中局部使用的小字符串放在 `堆栈 `里，而把一个巨大的字符串，或者一个全局保留的字符串放在 `堆` 里。
+也许它会把一个只在函数中局部使用的小字符串放在 `堆栈` 里，而把一个巨大的字符串，或者一个全局保留的字符串放在 `堆` 里。
 
-重点其实是，现代的 `JavaScript引擎` 很复杂，而且每个阶段都会进行高度优化。
+重要的是，现代的 `JavaScript引擎` 很复杂，而且每个阶段都会进行高度优化。
 
 他们不可能采取:
 
@@ -57,6 +57,8 @@ string = string.repeat(10000000000)
 引用数据类型也可以在 `堆栈` 中分配，而且至少在历史上的不同时期，一些 `JavaScript引擎` 已经这样做过了。
 
 如果一个对象不能在函数调用结束后继续存在，并且不是大规模的，那么把它放在 `堆栈` 中就可以在函数返回时很容易地回收它。
+
+> 问题来源：[https://stackoverflow.com/questions/67356107/where-does-javascript-allocate-memory-for-the-result-of-a-function-call-stack-o](https://stackoverflow.com/questions/67356107/where-does-javascript-allocate-memory-for-the-result-of-a-function-call-stack-o)
 
     译者注：
 
@@ -73,5 +75,3 @@ string = string.repeat(10000000000)
 参考资料：
 [v8 快属性](https://v8.js.cn/blog/fast-properties/)
 [v8 性能陷阱](https://siyuan.pub/2021/04/26/javascript-performance-pitfalls-v8/)
-
-> [https://stackoverflow.com/questions/67356107/where-does-javascript-allocate-memory-for-the-result-of-a-function-call-stack-o](https://stackoverflow.com/questions/67356107/where-does-javascript-allocate-memory-for-the-result-of-a-function-call-stack-o)

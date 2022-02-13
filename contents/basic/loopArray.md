@@ -1,4 +1,4 @@
-## 问题：在 JavaScript 中循环遍历数组 - 2011年
+## 问题：在 JavaScript 中循环遍历数组
 
 在 Java 中，可以使用 for 循环遍历数组中的对象，如下所示：
 
@@ -45,21 +45,21 @@ for (var i = 0; i < arrayLength; i++) {
 缺点：
 
 - 代码冗长
-- 对于迭代串行异步不太友好
 - 容易出现一个 [错误（有时也称为栅栏柱错误）](https://en.wikipedia.org/wiki/Off-by-one_error#Looping_over_arrays)
 
 **2. Array.prototype.forEach:**
 
-`ES5` 规范引入了很多有益的数组方法。`Array.prototype.forEach` 就是其中之一，它为我们提供了一种迭代数组的简洁方法
+`ES5` 规范引入了很多有益的数组方法。
+
+`Array.prototype.forEach` 就是其中之一，它为我们提供了一种迭代数组的简洁方法：
 
 ```js
-
 const array = ["one", "two", "three"]
 array.forEach(function (item, index) {
   console.log(item, index);
 });
 
-// 并且使用 ES6 箭头函数语法，会让它更加简洁：
+// 使用 ES6 箭头函数语法，会让它更加简洁：
 
 array.forEach(item => console.log(item));
 
@@ -72,10 +72,10 @@ array.forEach(item => console.log(item));
 
 缺点：
 
-- 不能使用中断/继续
 - 对于迭代串行异步不太友好
+- 不能使用控制流语句，不能中断/继续
 
-通常，您可以通过在迭代数组之前，先过滤它们，从而代替中断命令式循环的需要，例如：
+然而，您可以通过在迭代数组之前，先过滤它们，从而代替中断命令式循环的需要，例如：
 
 ```js
 array.filter(item => item.condition < 10)
@@ -100,7 +100,7 @@ const numbers = [1,2,3,4,5];
 const doubled = numbers.map(n => n * 2);
 ```
 
-此外，如果您尝试将数组归约为一个 `值`，例如，你想对一个数字数组求和，则应使用 `reduce` 方法。
+如果您尝试将数组归约为一个 `值` ，例如，你想对一个数字数组求和，则应使用 `reduce` 方法。
 
 
 **反模式：**
@@ -109,7 +109,6 @@ const doubled = numbers.map(n => n * 2);
 const numbers = [1,2,3,4,5];
 const sum = 0;
 numbers.forEach(num => { sum += num });
-
 ```
 
 **正确用例：**
@@ -117,7 +116,6 @@ numbers.forEach(num => { sum += num });
 ```js
 const numbers = [1,2,3,4,5];
 const sum = numbers.reduce((total, n) => total + n, 0);
-
 ```
 
 **3. ES6 for-of ：**
@@ -139,11 +137,10 @@ for (const color of colors){
 
 - 它可以迭代各种各样的对象
 - 可以使用正常的流控制语句 `break/continue`
-- 对于迭代串行异步很有用，可以使用 `async，Promises`
+- 对于迭代串行异步很有用，可以使用 `async await 语句`
 
 **缺点：**
 
-- 如果您的目标是较旧的浏览器，转译后的输出可能会让您大吃一惊
 - 无法获取当前索引
 
 ### 不要使用 `for...in`
@@ -152,10 +149,10 @@ for (const color of colors){
 
 它不应该用于类似数组的对象，因为：
 
-- 不保证迭代的顺序；数组索引可能不会按数字顺序访问。
-- 还列举了继承的属性。
+- 它不能保证迭代的顺序；数组索引可能不会按数字顺序访问。
+- 还会枚举继承的属性。
 
-尤其是第二点，它会给您带来很多问题。例如，如果您扩展了 `Array.prototype` 对象，在其中添加了其他方法，那么这些添加的属性也会被枚举出来。
+尤其是第二点，它会带来很多问题。例如，如果你的代码库里扩展了 `Array.prototype` 对象，在其中添加了其他方法，那么这些添加的属性也会被枚举出来。
 
 ```js
 Array.prototype.foo = "foo!";
@@ -181,15 +178,18 @@ var obj = {
 
 for (var prop in obj) {
     if (obj.hasOwnProperty(prop)) {
-        // or if (Object.prototype.hasOwnProperty.call(obj,prop)) for safety...
+        //  为了安全起见，也可以
+        //  if (Object.prototype.hasOwnProperty.call(obj,prop))
         console.log("prop: " + prop + " value: " + obj[prop])
     }
 }
 ```
 
-在上面的示例中， `hasOwnProperty` 方法允许你仅枚举自己的属性：只有对象当前具有的属性，没有继承的属性（原型上的属性）。
+在上面的示例中， `hasOwnProperty` 方法允许你仅枚举自己的属性：只检索对象当前具有的属性，绕过继承的属性（原型上的属性）。
 
 最后，我建议您阅读以下文章：
 
 [Enumeration VS Iteration
 ](http://web.archive.org/web/20101213150231/http://dhtmlkitchen.com/?category=/JavaScript/&date=2007/10/21/&entry=Iteration-Enumeration-Primitives-and-Objects)
+
+> 问题来源：[https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript](https://stackoverflow.com/questions/3010840/loop-through-an-array-in-javascript)

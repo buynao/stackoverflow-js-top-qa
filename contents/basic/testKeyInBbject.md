@@ -1,4 +1,4 @@
-## 问题：检查 JavaScript 对象中是否存在某个键？ - 2010年
+## 问题：检查 JavaScript 对象中是否存在某个键？
 
 如何检查 `JavaScript` 对象或数组中是否存在特定 `键`？
 
@@ -6,21 +6,23 @@
 
 ## 答案
 
-检查 `undefined` 并不是测试一个` 键` 是否存在的准确方法。如果 `键` 确实存在，但 `值` 实际上是 `undefined` 呢？
+直接判断 `key === undefined`， 并不能准确的判断这个 `键` 是否存在。
+
+比如， `键` 确实存在，但 `值` 实际上是 `undefined` 呢？
 
 ```js
 var obj = { key: undefined };
 console.log(obj["key"] !== undefined); // false, 但键是存在的
 ```
 
-应该改用 `in` 运算符：
+改用 `in` 运算符：
 
 ```js
 var obj = { key: undefined };
 console.log("key" in obj); // true, 与实际值无关
 ```
 
-请注意，如果检查 `键` 是否存在，记得使用括号：
+请注意，如果需要直接判断 `键` 是否存在，记得使用括号把判断条件包裹起来：
 
 ```js
 

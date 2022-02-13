@@ -1,6 +1,6 @@
-## 问题：sleep() 的 JavaScript 版本是什么？ - 2010年
+## 问题：sleep() 的 JavaScript 版本是什么？
 
-有没有比 `pausecomp` 更好的方法， 在 `JavaScript` 中设计 `sleep` ？
+有没有比下面 `pausecomp` 更好的方法， 如何在 `JavaScript` 中设计一个优雅的 `sleep` ？
 
 ```js
 
@@ -18,21 +18,20 @@ function pausecomp(millis)
 
 ### 2017 — 2021 更新
 
-自 2009 年提出这个问题以来，`JavaScript` 发生了重大变化。所有其他答案现在都已过时或过于复杂。
+自 2009 年提出这个问题以来，`JavaScript` 发生了重大变化。其他很多的答案现在都已过时或过于复杂。
 
-这是当前的最佳实践：
+这种是当前的最佳实践：
 
 ```js
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-//  或作为单行
 
+//  作为单行
 await new Promise(r => setTimeout(r, 2000));
 
-// 或
-
+// 添加参数控制
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 await sleep(<duration>);
@@ -42,7 +41,6 @@ await sleep(<duration>);
 ### 使用
 
 ```js
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
