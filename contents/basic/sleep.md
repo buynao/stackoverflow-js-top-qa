@@ -1,4 +1,4 @@
-## What is the JavaScript version of sleep()?
+## 问题：sleep() 的 JavaScript 版本是什么？ - 2010年
 
 有没有比 `pausecomp` 更好的方法， 在 `JavaScript` 中设计 `sleep` ？
 
@@ -14,7 +14,7 @@ function pausecomp(millis)
 
 ```
 
-## 最佳答案
+## 答案
 
 ### 2017 — 2021 更新
 
@@ -124,4 +124,4 @@ Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
   }
 ```
 
-> [https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep](https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep)
+> 问题来源：[https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep](https://stackoverflow.com/questions/951021/what-is-the-javascript-version-of-sleep)

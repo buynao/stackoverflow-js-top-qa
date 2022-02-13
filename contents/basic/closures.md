@@ -1,26 +1,18 @@
-## 经典问题: JavaScript闭包是如何工作的？
+## 问题: JavaScript闭包是如何工作的？
 
 你会如何向了解它们所包含的概念（例如函数、变量等），但不了解闭包本身的人解释 `JavaScript` 闭包？
 
-## 最佳答案
+## 答案
 
-一个 `闭合` 是以下的结合：
+一个 `闭合` 是一种函数组合：一个`函数`和对该函数外部范围（`词法环境`）的引用.
 
-一个`函数`和对该函数外部范围（`词法环境`）的引用.
+`词法环境`是每个执行上下文的一部分，是 `标识符`（既变量名称）和 `值` 之间的映射集合，也可以理解成一个 `对象`。它的 `属性` 就是当前环境中的 `标识符（变量名称）`，`值` 就是 `变量` 的值。
 
-`词法环境`是每个执行上下文的一部分，是 `标识符`（既变量名称）和 `值` 之间的映射集合，也可以理解成一个 `对象`.
-
-它的 `属性` 就是当前环境中的 `标识符（变量名称）`，`值` 就是 `变量` 的值。
-
-`JavaScript` 中的每个 `函数` 都保持对其外部 `词法环境` 的引用。
-
-这个引用被用来配置函数被调用时创建的 `执行环境`。
+`JavaScript` 中的每个 `函数` 都保持对其外部 `词法环境` 的引用。这个引用被用来配置函数被调用时创建的 `执行环境`。
 
 不管当前的函数在任意时刻被调用，这个引用都可以使得该 `函数` 内部的代码能够 `看到` 函数外部声明的 `变量`，从而进行引用。
 
-如果一个 `函数A` 被另一个`函数B`调用，而这个 `函数B` 又被另一个 `函数C` 调用，那么从 `函数A` 内部就会产生一个指向外部 `词法环境` 的 `引用链`。
-
-这就是我们经常说的`作用域链`。
+如果一个 `函数A` 被另一个`函数B`调用，而这个 `函数B` 又被另一个 `函数C` 调用，那么从 `函数A` 内部就会产生一个指向外部 `词法环境` 的 `引用链`。这就是我们经常说的`作用域链`。
 
 在下面的代码中，`inner` 与 `foo` 被调用时创建的 `执行上下文` 的 `词法环境` 形成一个闭合，闭合在变量 `secret` 之上。
 
@@ -269,4 +261,4 @@ for (var i = 0; i < 3; i++) {
 - A great explanation of how closures can cause [memory leaks in IE](https://www.codeproject.com/Articles/12231/Memory-Leakage-in-Internet-Explorer-revisited) if you are not careful.
 - MDN documentation on [JavaScript Closures.](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures)
 
-> [https://stackoverflow.com/questions/111102/how-do-javascript-closures-work](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
+> 问题来源：[https://stackoverflow.com/questions/111102/how-do-javascript-closures-work](https://stackoverflow.com/questions/111102/how-do-javascript-closures-work)
