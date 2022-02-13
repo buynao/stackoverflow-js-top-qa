@@ -20,9 +20,9 @@
 - [“use strict”在 JavaScript 中做了什么，背后的原因是什么？ - 2009年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/use_strict.md)
 - [JavaScript 闭包是如何工作的？ - 2009年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/closures.md)
 - [sleep() 的 JavaScript 版本是什么？ - 2010年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/sleep.md)
-- [在 JavaScript 中如使字符串的第一个字母大写（含国际化方案）？- 2010年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/firstStrToUppercase.md)
 - [如何测试一个空的 JavaScript 对象？-2010年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/emptyObject.md)
 
 > 进阶
 
 - [Javascript 在哪里为函数调用的结果分配内存？堆栈还是堆？ - 2021年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/advanced/heapAndStack.md)
+- [在 JavaScript 中如使字符串的第一个字母大写（含国际化方案）？- 2010年](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/advanced/firstStrToUppercase.md)
