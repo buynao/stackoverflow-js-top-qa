@@ -24,6 +24,7 @@
 - [检查 JavaScript 对象中是否存在某个键？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/testKeyInBbject.md)
 - [在 JavaScript 中循环遍历数组](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/loopArray.md)
 - [在 JavaScript 中循环枚举对象](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/enumerateObject.md)
+- [为什么不能使用“for...in”进行数组迭代？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/badForInArray.md)
 
 > 进阶
 
