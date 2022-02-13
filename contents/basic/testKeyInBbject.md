@@ -39,4 +39,4 @@ console.log(obj.hasOwnProperty("key")); // true
 
 关于 `in` , `hasOwnProperty` 和 `key === undefined` 三种方法之间的性能比较，请参阅此 [文档](https://jsben.ch/WqlIl) 。
 
-![avatar](https://i.stack.imgur.com/PEuZT.png)
+![result](https://raw.githubusercontent.com/buynao/stackoverflow-js-top-qa/main/contents/basic/assets/result.png)
