@@ -23,7 +23,7 @@
 - [如何测试一个空的 JavaScript 对象？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/emptyObject.md)
 - [检查 JavaScript 对象中是否存在某个键？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/testKeyInBbject.md)
 - [在 JavaScript 中循环遍历数组](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/loopArray.md)
-<!-- - [在 JavaScript 中循环枚举对象](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/loopObject.md) -->
+- [在 JavaScript 中循环枚举对象](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/enumerateObject.md)
 
 > 进阶
 
