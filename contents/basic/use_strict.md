@@ -1,6 +1,6 @@
 ## 问题：“use strict”在 JavaScript 中做了什么，背后的原因是什么？
 
-最近，我通过 Crockford 的 JSLint 运行了我的一些 JavaScript 代码。 它给出了以下错误:
+最近，我运行一些 JavaScript 代码。 发现了以下错误:
 
 ```js
 
@@ -8,17 +8,19 @@ Problem at line 1 character 1: Missing "use strict" statement.
 
 ```
 
-搜索了一下，发现有人在代码里加入了 `use strict`。一旦我添加了语句，错误就不再出现。不幸的是，我搜索之后并没有了解到这个字符串语句的背后的大部分历史。当然，它肯定与浏览器如何解释 `JavaScript` 有关系，但我不知道会产生什么影响。
+检查一番后，我发现是有人在之前的代码里引入了 `use strict`。而且当我添加一些声明语句时，错误就不再出现。
 
-那么什么是 `use strict` ? 它意味着什么，以及它是否仍然起着什么作用？
+不幸的是，我搜索一些相关资料之后，并没有加深我对这个字符串语句的了解。当然，它肯定与浏览器如何解释 `JavaScript` 有关系，但我不知道具体会产生什么影响？
 
-当前浏览器会对这个字符串 `use strict` 有反应，还是将来才会使用？
+所以， `use strict` 到底什么 ? 它意味着什么，它现在是否仍然起着什么其他作用？
+
+现代的浏览器会对这个字符串 `use strict` 有所反应，还是将来才会使用？
 
 ## 答案
 
-### ES6 最新更新
+### ES6 更新
 
-在原生 ECMAScript 模块（带有 import 和 export 语句）和 ES6 类中，严格模式始终处于启用状态且无法禁用。
+在原生 ECMAScript 模块（带有 import 和 export 语句）内部 和 `ES6 class `  环境中运行代码时，严格模式始终处于启用状态且无法禁用。
 
 ### 原始回答
 
@@ -27,8 +29,7 @@ Problem at line 1 character 1: Missing "use strict" statement.
 引用一些有趣的部分：
 
 ```
-
-严格模式是 ECMAScript 5 中的一项新功能，它允许您将程序或函数置于“严格”操作上下文中。这种严格的上下文会阻止执行某些操作并引发更多异常。
+严格模式是 ECMAScript 5 中的一项新功能，它允许您将程序或函数置于 `严格模式` 上下文中。这种严格的上下文环境会阻止一些引发异常的操作。
 ```
 
 还有：
@@ -38,7 +39,7 @@ Problem at line 1 character 1: Missing "use strict" statement.
 严格模式有几个方面的帮助：
 
 - 捕捉一些常见的编码错误，抛出异常。
-- 当采取相对 "不安全 "的行动时（如获得对全局对象的访问），它可以防止或抛出错误。
+- 当采取相对 "不安全 "的操作时（如获得对全局对象的访问），它可以禁止或抛出错误。
 - 禁用那些令人困惑或考虑不周的功能。
 
 ```
@@ -49,25 +50,25 @@ Problem at line 1 character 1: Missing "use strict" statement.
 
 ```js
 
-// Non-strict code...
+// 非严格模式
 
 (function(){
   "use strict";
 
-  // Define your library strictly...
+  // 严格模式下编写你的代码
 })();
 
-// Non-strict code...
+// 非严格模式
 
 ```
 
-如果你必须混合旧代码和新代码，这样会有所帮助;-)
+如果你必须混合旧代码和新代码，上面这种写法会有所帮助;-)
 
-**另外：现在所有主要浏览器都支持严格模式。**
+**另外：现在所有主流浏览器都支持严格模式。**
 
 ## 其他答案：
 
-这是ECMAScript 5的一个新特性。[John Resig](https://johnresig.com/blog/ecmascript-5-strict-mode-json-and-more/) 对它做了一个很好的[总结](https://johnresig.com/blog/ecmascript-5-strict-mode-json-and-more/)。
+这是ECMAScript 5的一个新特性。[John Resig](https://johnresig.com/blog/ecmascript-5-strict-mode-json-and-more/) 对它做了一个很好的 [总结](https://johnresig.com/blog/ecmascript-5-strict-mode-json-and-more/)。
 
 它只是一个字符串，你把它放在你的JavaScript文件中（在文件的顶部或在一个函数中），看起来像这样。
 
@@ -83,9 +84,9 @@ Problem at line 1 character 1: Missing "use strict" statement.
 
 ## 其他答案：
 
-声明`"use strict"; `；指示浏览器使用 `严格模式`，这是一种更安全的 `JavaScript` 功能。
+声明 `"use strict"; `；指示浏览器使用 `严格模式`，是一种更安全的 `JavaScript` 特性。
 
-#### 一些功能列表（非详尽）
+#### 一些特性列表（非详尽）
 
 - 不允许使用全局变量。(捕捉丢失的 `var` 声明和变量名称中的错别字）。
 - 在 `严格模式` 下，失败的赋值将抛出错误（`NaN = 5;`)
