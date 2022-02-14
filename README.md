@@ -26,7 +26,8 @@
 - [在 JavaScript 中循环枚举对象](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/enumerateObject.md)
 - [为什么不能使用 “for...in” 进行数组迭代？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/badForInArray.md)
 - [怎么理解 JavaScript 中的 new ？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/new.md)
-- [在 JavaScript 中如何检测 "invalid date" 日期?](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/checkInvalidDate.md)
+- [在 JavaScript 中如何检测 "invalid date" 日期？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/checkInvalidDate.md)
+- [在 JavaScript 中如何将十进制转换为十六进制？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/hexadecimal.md)
 - todo ...
 
 > 进阶
