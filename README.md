@@ -28,6 +28,7 @@
 - [怎么理解 JavaScript 中的 new ？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/new.md)
 - [在 JavaScript 中如何检测 "invalid date" 日期？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/checkInvalidDate.md)
 - [在 JavaScript 中如何将十进制转换为十六进制？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/hexadecimal.md)
+- [如何创建一个 [1，2，3，4，N...] 的数组？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/arrayn.md)
 - todo ...
 
 > 进阶
