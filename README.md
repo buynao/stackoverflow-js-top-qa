@@ -35,6 +35,7 @@
 
 - [在 JavaScript 中如使字符串的第一个字母大写（含国际化方案讨论）？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/advanced/firstStrToUppercase.md)
 - [Javascript 在哪里为函数调用的结果分配内存？堆栈还是堆？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/advanced/heapAndStack.md)
+- [什么时候应该使用encodeURI，而不是encodeURIComponent？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/advanced/encode.md)
 - todo ...
 
 
