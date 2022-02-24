@@ -121,3 +121,5 @@ function fixedEncodeURIComponent (str) {
 }
 
 ```
+
+> 问题来源：[https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent](https://stackoverflow.com/questions/75980/when-are-you-supposed-to-use-escape-instead-of-encodeuri-encodeuricomponent)
