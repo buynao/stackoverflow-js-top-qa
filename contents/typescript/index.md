@@ -79,7 +79,43 @@ x += 1; // 这一行将无法编译，因为x可能是undefined。
 
 ...todo
 
+### 编译
 
+使用 `TypeScript`，你需要一个构建过程来将其编译成 `JavaScript`。构建过程一般只需要几秒钟，当然这取决于你项目的大小。`TypeScript` 编译器支持增量编译（`--watch` 编译器标志），这样所有后续的变化都可以以更快的速度编译。
+
+`TypeScript` 编译器可以在生成的 `.js` 文件中内联 `Source map` 或创建单独的 `.map` 文件。`Source map` 可以被调试工具使用，比如 `Chrome DevTools` 和其他 IDE。
+
+`Source map` 将 JavaScript 中的行与 TypeScript 中生成的行联系起来。
+
+这使得你可以在运行期间直接在 `TypeScript` 代码上设置断点和检查变量。`Source map` 早在 `TypeScript` 之前就存在了，但调试 `TypeScript` 通常没有直接调试 JavaScript 时那么优化。
+
+以 `this` 关键字为例。自 `ES2015` 以来，围绕闭包的 `this` 关键字的语义发生了变化，这可能在运行时实际存在一个名为 `_this` 的变量（见此[答案](https://stackoverflow.com/questions/30056593/visual-studio-shows-wrong-value-for-this-in-typescript/30070859#30070859)）。在调试过程中，这可能会让你你感到困惑，但如果你知道这了一点或去检查下 JavaScript 代码，就不会有什么问题了。需要注意的是，Babel 也有完全相同的问题。
+
+`TypeScript` 编译器还能做一些其他的小技巧，比如基于 [装饰器 decorators](https://stackoverflow.com/questions/29775830/how-to-implement-a-typescript-decorator) 生成拦截代码，为不同的模块系统生成模块加载代码，以及解析 JSX。
+
+然而，除了 `Typescript` 编译器之外，你可能还需要其他构建工具。例如，如果你想压缩你的代码，你将不得不在构建过程中添加其他工具来实现。
+
+在 Webpack、Gulp、Grunt 和几乎所有其他的 JavaScript `构建工具中都有TypeScript` 编译插件。`TypeScript` 文档中有一个关于 [与构建工具集成](https://www.typescriptlang.org/docs/handbook/integrating-with-build-tools.html) 的部分，涵盖了所有这些工具。
+
+如果你需要更多构建检查，也可以使用 [linter](https://www.npmjs.com/package/tslint)。还有大量的种子项目，可以让你开始使用 TypeScript 与其他技术的结合，如 Angular 2、React、Ember、SystemJS、Webpack、Gulp等。
+
+### 与JavaScript的互操作性
+
+由于 `TypeScript` 与 JavaScript 密切相关，它们之间有很好的互操作能力，但要在 `TypeScript` 中与 JavaScript 库一起混合工作，还需要一些额外工作。
+
+`TypeScript` 的声明定义有时也是需要的，这样 `TypeScript` 编译器就能正常理解像 `_.groupBy` 或 `angular.copy` 或 `$.fadeOut` ，实际上这些并不是非法语句。 这样的函数定义可以放在 `.d.ts` 文件中。
+
+定义类型的最简单形式是允许一个标识符以任何方式被使用。
+
+例如，当使用 `Lodash` 时，一个单行定义文件声明 `var _ : any` 将允许你在`_` 上调用任何你想要的函数，但是，你也可能偶尔会犯错误。`_.foobar()` 是一个合法的 `TypeScript` 调用，但在运行时就是一个非法调用了。如果你想要正确的类型支持和代码完成，你的定义文件需要更加精确（见 [lodash定义](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/lodash) 的例子）。
+
+如果加载的 `Npm Package` 有自己的声明文件，会被 `TypeScript` 编译器自动理解。对于一些没有声明文件定义的不太流行的 JavaScript 库，有人通过另一个 npm 模块提供了声明文件。这些模块的前缀是 `@types/` ，来自一个叫做[DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped#how-do-i-get-them) 的 `Github` 资源库。
+
+注意事项：声明文件必须符合你使用的库的版本保持一致。
+
+如果不这样做，`TypeScript` 可能不允许你调用一个函数或解除引用一个存在的变量，或者允许你调用一个函数或解除引用一个不存在的变量...仅仅是因为类型在编译时与运行时的版本不匹配。所以要确保你为你所使用的库的正确版本加载正确的声明文件。
+
+说实话，这有一点麻烦，这可能是你不选择 `TypeScript` 的原因之一，而是去选择像 `Babel` 这样的东西，因为它根本不需要定义类型。另一方面，如果你知道你在做什么，你可以很容易地克服由不正确或丢失定义文件引起的任何类型的问题。
 
 ## 其他参考
 
