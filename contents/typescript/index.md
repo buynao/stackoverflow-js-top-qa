@@ -117,6 +117,12 @@ x += 1; // 这一行将无法编译，因为x可能是undefined。
 
 说实话，这有一点麻烦，这可能是你不选择 `TypeScript` 的原因之一，而是去选择像 `Babel` 这样的东西，因为它根本不需要定义类型。另一方面，如果你知道你在做什么，你可以很容易地克服由不正确或丢失定义文件引起的任何类型的问题。
 
+## 最后
+
+使用 `Typescript` 最大的障碍是有一个学习曲线。最好能够一开始就用一个小项目来练习。看看它是如何工作的，如何构建，使用哪些文件，如何配置，在你的IDE中如何运作，它的结构如何，使用哪些工具，等等。
+
+只要确保你在切换 `TypeScript` 之前对它已经能够掌握，将大型 JavaScript 代码库转换为 `TypeScript` 是可以做到的。[阅读这个博客](https://www.lucidchart.com/techblog/2017/11/16/converting-600k-lines-to-typescript-in-72-hours/)，了解在 72 小时内将 60 万行转换为 TypeScript 的例子）。
+
 ## 其他参考
 
 [译者在公司内部分享：应用TS的成本收益分析 PPT](https://github.com/buynao/notes/blob/master/typesript/xx%E5%BA%94%E7%94%A8TS%E7%9A%84%E6%88%90%E6%9C%AC%E6%94%B6%E7%9B%8A%E5%88%86%E6%9E%90.pdf)
