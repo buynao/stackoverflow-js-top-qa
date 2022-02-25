@@ -29,6 +29,7 @@
 10. [在 JavaScript 中如何检测 "invalid date" 日期？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/checkInvalidDate.md)
 11. [在 JavaScript 中如何将十进制转换为十六进制？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/hexadecimal.md)
 12. [如何创建一个 [1，2，3，4，N...] 的数组？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/arrayn.md)
+13. [JavaScript是否有类似 range() 的方法，可以在边界内的生成一个范围？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/basic/range.md)
 - todo ...
 
 > 进阶
