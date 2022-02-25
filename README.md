@@ -45,6 +45,12 @@
 1. [TypeScript是什么，为什么要用它来代替JavaScript？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/typescript/index.md)
 - todo ...
 
+> React
+
+1. [React中 state 和 props 的区别是什么？](https://github.com/buynao/stackoverflow-js-top-qa/blob/main/contents/react/stateVsProps.md)
+- todo ...
+
+
 ## 为什么选择stackoverflow
 
 虽然经过了一番筛选后，上述很多问题，现在可能看起来仍然比较过时，解答也没有一些现成的前端面试答案的资料看起来更爽更舒服。
