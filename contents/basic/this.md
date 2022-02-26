@@ -142,7 +142,7 @@ The GetThisBinding concrete method of a function Environment Record envRec […]
 
 有了上边的技术背景介绍，方便我们接下来研究更多具体例子：
 
-### 箭头函数 Arrow functions
+#### Arrow functions
 
 当一个 [箭头函数](https://tc39.es/ecma262/#sec-runtime-semantics-instantiatearrowfunctionexpression) 被执行时，函数对象的 `[[ThisMode]]` 内部槽在 [OrdinaryFunctionCreate](https://tc39.es/ecma262/#sec-ordinaryfunctioncreate) 中被设置为 `词法`。
 
@@ -172,7 +172,7 @@ If envRec.[[ThisBindingStatus]] is lexical, return false; otherwise, return true
 箭头函数没有自己的 this [...] 绑定。相反，[this 标识符] 像其他变量一样在词法范围内被解析。这意味着在一个箭头函数中，this [指]的是箭头函数所定义的环境中的 [this的值]（即箭头函数的 "外部"）。
 ```
 
-### Function properties
+#### Function properties
 
 在正常的函数（函数、方法）中，`this` 是由函数的调用方式决定的。`this` 就是
 这些 "语法变体" 派上用场的地方。
@@ -231,7 +231,7 @@ const o = {
   };
 ```
 
-### 无基础引用的调用，严格模式，以及 with
+#### 无基础引用的调用，严格模式，以及 with
 
 没有基础引用的调用通常是指没有作为属性调用的函数。比如说。
 
@@ -331,7 +331,7 @@ f(); // Logs `undefined`.
 
 注意，在检查 `this` 时，函数是在哪里定义的并不重要。
 
-### .call, .apply, .bind, thisArg, and primitives
+#### .call, .apply, .bind, thisArg, and primitives
 
 [OrdinaryCallBindThis](https://tc39.es/ecma262/#sec-ordinarycallbindthis) 的第 5 步与第 6.2 步，结合起来可以推断，只有在 "宽松模式" 下，才会将一个原始的 `this` 值强制分配给一个对象。
 
@@ -407,7 +407,7 @@ g();              // Logs `"s"`.
 f.call(myString); // Logs `"s"`.
 ```
 
-### Constructors, classes, and new
+#### Constructors, classes, and new
 
 当使用 `new` 操作符将一个函数作为构造函数调用时，[EvaluateNew](https://tc39.es/ecma262/#sec-evaluatenew) 会调用[Construct](https://tc39.es/ecma262/#sec-construct)，它会调用内部 `[[Construct]]` 方法。
 
@@ -456,7 +456,7 @@ class A{
 new A().m2(); // Logs `undefined`.
 ```
 
-### super
+#### super
 
 如上所述，`new` 行为的例外是 `class extends...{...}`。派生类在调用时不会立即设置它们的 `this `值；它们只有在通过一系列 `super` 调用到达基类时才会这样做。在调用 `super` 之前使用 `this` 是不允许的。
 
@@ -474,7 +474,7 @@ const n2 = new DerivedNew(1, 2);
 console.log(n2); // Logs `DerivedNew { p: 1, p2: 2 }`.
 ```
 
-### 5. 进入 class fields
+### 5. 进入 class 执行上下文
 
 实例字段和静态字段是在 `ECMAScript 2022` 中引入的。
 

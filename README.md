@@ -10,7 +10,7 @@
 
 这些问题之所以之所以票数比较高，除了问题比较经典，时间久远积累的原因之外，更多的是因为很多答疑者们，在提供解决方案的同时，还能集思广益，引发更多角度的思考：
 
-- 比如通过ECMA标准规范，对问题刨根剖底：[this 的运行原理？](https://github.com/buynao/)
+- 比如通过ECMA标准规范，对问题刨根剖底：[this 的运行原理？](./contents/basic/this.md)
 - 比如针对 "老生常谈" 的问题，进行深度思考： [在 JavaScript 中如使字符串的第一个字母大写（含国际化方案讨论）？](./contents/advanced/firstStrToUppercase.md)
 - 还有一些可能目前热度不高，但是却令人茅塞顿开：有些知识，传了百遍，千遍，就是正确的么？[Javascript 在哪里为函数调用的结果分配内存？堆栈还是堆？](./contents/advanced/heapAndStack.md)
 - 比如会将解决方案的优缺点，进行一一对比：[在 JavaScript 中循环遍历数组](./contents/basic/loopArray.md)
@@ -32,7 +32,7 @@
 
 ## 阅读
 
-[在线阅读](https://buynao.github.io/stackoverflow-js-top-qa/)
+[在线阅读](https://stackoverflow-js-top-qa.vercel.app)
 
 ## 目录
 
