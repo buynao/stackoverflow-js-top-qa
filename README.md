@@ -65,6 +65,7 @@
 > Typescript
 
 1. [TypeScript是什么，为什么要用它来代替JavaScript？](./contents/typescript/index.md)
+2. [TypeScript中 接口(interface) 与 类型(type) 的区别是什么？](./contents/typescript/interface.md)
 - todo ...
 
 > React
