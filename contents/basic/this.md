@@ -2,15 +2,15 @@
 
 我看到过很多关于 `this` 的一些非常奇怪的行为，但却不明白为什么会发生这种情况。
 
-`this` 的运行原理是怎样的，什么时候应该使用？
+`this` 的运行原理是怎样的，应该怎么使用它？
 
 ## 答案
 
-`this` 是 JavaScript 中执行环境的一个属性。它的主要用途通常是在函数和构造函数中。使用规则很简单（如果你坚持最佳实践的话）。
+`this` 是 JavaScript 中 `执行环境` 里的一个属性。主要用途通常是在函数和构造函数中。使用规则很简单（如果你坚持最佳实践的话）。
 
 ### ECMA规范中对 this 的技术描述
 
-[ECMAScript标准](https://tc39.es/ecma262/) 通过抽象操作（缩写为AO）[ResolveThisBinding](https://tc39.es/ecma262/#sec-resolvethisbinding) 来定义 [this](https://tc39.es/ecma262/#sec-this-keyword) ：
+[ECMAScript标准](https://tc39.es/ecma262/) 通过 [ResolveThisBinding](https://tc39.es/ecma262/#sec-resolvethisbinding) AO（一种抽象操作，缩写为AO） 来定义 [this](https://tc39.es/ecma262/#sec-this-keyword) ：
 
 ```text
 ResolveThisBinding 不需要任何参数。它使用运行中的执行环境的 [词法环境 LexicalEnvironment] 来完成 this 的绑定。在被调用时执行以下步骤。
@@ -21,17 +21,17 @@ ResolveThisBinding 不需要任何参数。它使用运行中的执行环境的 
 
 [全局环境记录 Global Environment Records](https://tc39.es/ecma262/#sec-global-environment-records)、[模块环境记录 Module Environment Records](https://tc39.es/ecma262/#sec-module-environment-records) 和 [函数环境记录 Function Environment Records](https://tc39.es/ecma262/#sec-function-environment-records) 都有自己的 `GetThisBinding` 方法。
 
-`GetThisEnvironment` 通过抽象操作找到当前执行环境中的 `词法环境 LexicalEnvironment`，并找到最接近的具有此绑定（即 `HasThisBinding` 返回 true ）的下级环境记录（通过迭代访问其 `[[OuterEnv]]` 属性）。这个过程最后会产生 `三种环境记录类型` 中的一种。
+通过 `GetThisEnvironment` AO 找到当前执行环境中的 `词法环境 LexicalEnvironment`，并找到最接近的具有此绑定（即 `HasThisBinding` 返回 true ）的环境记录（通过迭代访问其 `[[OuterEnv]]` 属性）。这个过程最后会产生上述 `三种环境记录类型` 中的一种。
 
 `this` 往往取决于代码环境是否处于 `严格模式（strict mode）` 中。
 
 `GetThisBinding` 的返回值就是当前执行上下文的 `this`，所以每当建立一个新的执行上下文时，`this` 就会解析为一个不同的值。当当前执行上下文被修改时也会发生这种情况。
 
-下面的例子列出了可能发生这种情况的五种情况：
+下面的例子列出了可能发生这种情况的五种场景：
 
 ### 1.脚本中的全局执行上下文
 
-这是在最顶层执行的代码，例如，直接在`<script>`内。
+例如，这是在最顶层执行的代码，直接在`<script>`内。
 
 ```html
 <script>
@@ -52,13 +52,13 @@ The GetThisBinding concrete method of a global Environment Record envRec […] [
 Return envRec.[[GlobalThisValue]].
 ```
 
-`全局环境记录` 的 `[[GlobalThisValue]]` 属性总是被设置为当前环境的全局对象，它可以通过 `globalThis`（Web 上的 `window`，Node.js 上的 `global`；MDN上的文档）访问。可以按照 [InitializeHostDefinedRealm](https://tc39.es/ecma262/#sec-initializehostdefinedrealm) 的步骤来学习 `[[GlobalThisValue]]` 属性是如何形成的。
+`全局环境记录` 的 `[[GlobalThisValue]]` 属性总是被设置为当前环境的全局对象，它可以通过 `globalThis`（Web 上的 `window`，Node.js 上的 `global`；[MDN上的文档](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/globalThis) ）访问。你也可以按照 [InitializeHostDefinedRealm](https://tc39.es/ecma262/#sec-initializehostdefinedrealm) 的步骤来学习 `[[GlobalThisValue]]` 的属性是如何形成的。
 
 ### 2. module 中的执行上下文
 
 module 在 `ECMAScript 2015` 中被引入。
 
-例如：当直接在 `<script type="module">` 里面，而不是简单的 `<script>`。
+例子：直接在 `<script type="module">` 里面执行的代码。
 
 当 module 在全局环境中执行代码时，`GetThisBinding` 将有以下步骤。
 
@@ -68,22 +68,22 @@ The GetThisBinding concrete method of a module Environment Record […] [does th
 Return undefined.
 ```
 
-在 `module` 中，`this` 在全局范围内始终是 `undefined`。`module` 默认是开启严格模式的。
+因此在 `module` 中，`this` 在全局范围内始终是 `undefined`。`module` 默认是开启严格模式的。
 
 ### 3. 进入 eval 上下文
 
-`eval` 有两种调用方式：[直接](https://tc39.es/ecma262/#sec-function-calls-runtime-semantics-evaluation) 和 [间接](https://tc39.es/ecma262/#sec-eval-x)。这种区别从 `ECMAScript第五版` 就开始存在。
+`eval` 有两种调用方式：[直接调用](https://tc39.es/ecma262/#sec-function-calls-runtime-semantics-evaluation) 和 [间接调用](https://tc39.es/ecma262/#sec-eval-x)。这种区别从 `ECMAScript第五版` 就开始存在。
 
-- 一个直接的 `eval` 调用通常看起来像 `eval(...);` 或者 `(eval)(...);`，只有在调用表达符合狭义模式的情况下才是 `直接` 的。
-- 间接调用 `eval` 通常是以调用函数引用 `eval` 来完成的，比如：`eval?.(…)` , `(…, eval)(…)` , `window.eval(…)` , `eval.call(…,…)` 等...
+- 直接调用的 `eval` 通常看起来像 `eval(...);` 或者 `(eval)(...);`，只有在调用表达符合狭义模式的情况下才是 `直接` 的。
+- 间接调用的 `eval` 通常是以调用函数引用 `eval` 来完成的，比如：`eval?.(…)` , `(…, eval)(…)` , `window.eval(…)` , `eval.call(…,…)` 等...
 
-[performeval](https://tc39.es/ecma262/#sec-performeval) 执行 `eval` 代码时，会创建一个新的 [声明性环境记录](https://tc39.es/ecma262/#sec-declarative-environment-records) 作为其 `词法环境 LexicalEnvironment`，这也是 `GetThisEnvironment` 获取此值的地方。
+通过 [performeval](https://tc39.es/ecma262/#sec-performeval) 执行 `eval` 代码时，会创建一个新的 [声明性环境记录](https://tc39.es/ecma262/#sec-declarative-environment-records) 作为其 `词法环境 LexicalEnvironment`，这也是 `GetThisEnvironment` 获取 `this` 值的地方。
 
 如果 `this` 出现在 `eval` 代码中，将由 `GetThisEnvironment` 找到的环境记录的 `GetThisBinding` 方法，直接调用并返回其值。
 
 而刚刚所介绍的 `声明性环境记录` 来源哪里，是取决于 `eval` 的调用方式是 `直接` 还是 `间接`。
 
-- 在 `直接` 调用中，它将基于当前运行的执行环境的 `LexicalEnvironment`。
+- 在 `直接` 调用中，它将基于当前运行的执行环境中的 `词法环境 LexicalEnvironment`。
 - 在 `间接` 调用中，它将基于执行当前环境记录中的 `[[GlobalEnv]]` 属性（一个全局环境记录）。
 
 翻译一下，也就是说：
@@ -91,34 +91,33 @@ Return undefined.
 - 在 `直接` 调用中，`this` 值不会改变；它就来自当前执行的词法环境中。
 - 在 `间接` 调用中，`this` 值就是全局对象。
 
-那么 `new Function` 呢？- `new Function` 与 `eval` 类似，但它并不立即调用代码，而是创建一个构造函数。在构造函数中的任何地方都不适用 `this` 的绑定，但是当这个函数被调用时，`this` 才能够发挥作用，正如下一小节所解释的。
+那么 `new Function` 呢？- `new Function` 与 `eval` 类似，但它并不立即调用代码，而是创建一个构造函数。在构造函数中的任何地方都不适用 `this` 的绑定，但是当这个函数被调用时，`this` 才能够发挥作用，下一小节会继续进行相关解释
 
 ### 4. 进入 function 执行上下文
 
-进入 function 执行上下文，通常是指在调用一个函数时。
+在调用一个函数时，我们将进入 function 执行上下文，目前有四种语法可以调用一个函数。
 
-有四种语法可以调用一个函数。
-
-- [EvaluateCall](https://tc39.es/ecma262/#sec-evaluatecall) AO是针对这三种情况进行的：
+- [EvaluateCall](https://tc39.es/ecma262/#sec-evaluatecall) AO 是针对这三种情况进行的：
   - 正常的函数调用（[Normal function calls](https://tc39.es/ecma262/#sec-function-calls-runtime-semantics-evaluation)）
   - 可选的链式调用（[Optional chaining calls](https://tc39.es/ecma262/#sec-optional-chaining-evaluation)）
   - 标签模板（[Tagged templates](https://tc39.es/ecma262/#sec-tagged-templates-runtime-semantics-evaluation)）
-- [EvaluateNew](https://tc39.es/ecma262/#sec-evaluatenew) 只为一种情况进行：
+- [EvaluateNew](https://tc39.es/ecma262/#sec-evaluatenew) AO 只为一种情况进行：
   - 构造函数的调用（[Constructor invocations](https://tc39.es/ecma262/#sec-new-operator-runtime-semantics-evaluation)）
 
-实际的函数调用发生在 [Call 的抽象操作](https://tc39.es/ecma262/#sec-call) 中，它由当前执行上下文中已经确定了的 `thisValue` 来进行调用；函数参数会在一长串与调用相关的调用中被传递。
+实际的函数调用发生在 [Call](https://tc39.es/ecma262/#sec-call) AO 中，它由当前执行上下文中已经确定了的 `thisValue` 来进行调用；函数参数会在一长串与调用相关的调用中被传递。
 
 当 [调用](https://tc39.es/ecma262/#sec-call) 函数的内部槽 `[[Call]]` ，就会调用 [PrepareForOrdinaryCall](https://tc39.es/ecma262/#sec-prepareforordinarycall)，最后会创建一个新的 [函数环境记录](https://tc39.es/ecma262/#sec-function-environment-records)。
 
 ```text
-函数环境记录是一个声明性的环境记录，用来表示一个函数的顶层作用域，如果该函数不是 ArrowFunction 函数，则提供 this 绑定。
-如果它还引用了 super，那么它的函数环境记录也包含了用于从函数中执行 super 方法中调用的状态。
+`函数环境记录` 是一个声明性的环境记录，用来表示一个函数的顶层作用域，如果该函数不是 ArrowFunction 函数，则提供 this 绑定。
+
+如果它的内部引用了 super，那么它的 `函数环境记录` 也包含了用于从函数中执行 super 方法后的环境状态。
 ```
 
-此外，在一个功能环境记录中还有 `[[ThisValue]]` 字段。
+此外，在一个 `函数环境记录` 中包含 `[[ThisValue]]` 字段。
 
 ```text
-这是本次调用函数时的 this 值。
+这是在调用函数时使用的 this 值。
 ```
 
 `NewFunctionEnvironment` 的调用也设置了函数环境的 `[[ThisBindingStatus]]` 属性。
@@ -129,7 +128,7 @@ Return undefined.
 - 函数的种类
 - 代码是否处于严格模式。
 
-一旦确定，开始调用函数环境记录里的 `BindThisValue` 方法，将 `[[ThisValue]]` 字段设置为 `thisArgument`。最终，函数环境记录的 `GetThisBinding AO` 可以直接获得 `this` 值：
+一旦确定，开始调用函数环境记录里的 `BindThisValue` 方法，将 `[[ThisValue]]` 字段设置为 `thisArgument`。最终，通过 `函数环境记录` 的 `GetThisBinding AO` 可以直接获得 `this` 值：
 
 ```text
 The GetThisBinding concrete method of a function Environment Record envRec […] [does this]:
