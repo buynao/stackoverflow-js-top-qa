@@ -26,10 +26,9 @@ console.log(capitalizeFirstLetter('foo')); // Foo
 
 ```
 
-其他一些答案修改了 `String.prototype`（这个答案以前也是如此），但我现在建议不要这样做，因为可维护性问题（很难发现函数被添加到原型中的位置，如果其他代码使用相同的名称/浏览器将来添加相同名称的本地函数，可能会导致冲突）。
+其他一些答案修改了 `String.prototype`（这个答案以前也是如此），但我建议不要这样做，因为可维护性的问题（如果其他代码添加相同名称的本地函数，可能会导致代码冲突）。
 
-如果你想用 `Unicode` 代码点而不是代码单位来工作（例如处理基本多语言平面以外的 `Unicode` 字符），你可以利用 [String#[@iterator]](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/@@iterator)，使用 `toLocaleUpperCase` 来获得当前正确的
-大写字母。
+如果你想用 `Unicode` 代码点而不是代码单元来工作，你可以使用 [String#[@iterator]](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/@@iterator)，在通过 `toLocaleUpperCase` 来获得当前正确的大写字母。
 
 ```js
 
@@ -48,9 +47,7 @@ console.log(
 
 ## 其他答案
 
-`Uppercase` 在指定脚本的情况下，每种语言中得到的结果并不意味着都是相同的。
-
-大多数建议的功能如下所示：
+大多数建议的答案如下所示：
 
 ```js
 
@@ -60,7 +57,7 @@ function capitalizeFirstLetter(str) {
 
 ```
 
-但是，一些大小写字符不在 `BMP`（基本多语言平面，代码点 `U+0` 到 `U+FFFF`）之外。例如，以这个 `Deseret` 文本为例：
+但是，一些大小写字符不在 `BMP`（[基本多文种平面](https://zh.wikipedia.org/wiki/Unicode%E5%AD%97%E7%AC%A6%E5%B9%B3%E9%9D%A2%E6%98%A0%E5%B0%84)，代码点 `U+0` 到 `U+FFFF`）之外。例如，以这个 `西班牙语` 文本为例：
 
 ```js
 
@@ -68,7 +65,7 @@ capitalizeFirstLetter("𐐶𐐲𐑌𐐼𐐲𐑉"); // "𐐶𐐲𐑌𐐼𐐲𐑉"
 
 ```
 
-这里的第一个字符没有大写，因为字符串的数组索引属性不访问 `characters` 或 `代码点**`。他们访问 `UTF-16` 代码单元。切片时也是如此——索引值指向代码单元。
+这里的第一个字符没有大写，因为字符串的数组索引属性不访问 `characters` 或 `代码单元*`。他们访问 `UTF-16` 代码单元。切片时也是如此——索引值指向代码单元。
 
 ```js
 
