@@ -60,6 +60,7 @@
 14. [在 JavaScript 中把字符转换成ASCII编码？](./contents/basic/ascii.md)
 15. [this 的运行原理？](./contents/basic/this.md)
 16. [在 JavaScript 中 addEventListener 和 onclick 之间有什么区别？](./contents/basic/onclick.md)
+17. [在 JavaScript 中 如何判断一个 number 是浮点数还是整数？](./contents/basic/integerVsFloat.md)
 - todo ...
 
 > 进阶
