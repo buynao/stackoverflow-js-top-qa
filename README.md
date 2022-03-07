@@ -36,31 +36,31 @@
 
     欢迎 star 激励~
 
-## 阅读
+## 在线阅读
 
-[在线阅读](https://stackoverflow-js-top-qa.vercel.app)
+[https://stackoverflow-js-top-qa.vercel.app](https://stackoverflow-js-top-qa.vercel.app)
 
 ## 目录
 
 > 基础
 
-1. [“use strict” 在 JavaScript 中做了什么，背后的原因是什么？](./contents/basic/use_strict.md)
-2. [JavaScript 闭包是如何工作的？](./contents/basic/closures.md)
-3. [sleep() 的 JavaScript 版本是什么？](./contents/basic/sleep.md)
-4. [如何测试一个空的 JavaScript 对象？](./contents/basic/emptyObject.md)
-5. [检查 JavaScript 对象中是否存在某个键？](./contents/basic/testKeyInBbject.md)
-6. [在 JavaScript 中循环遍历数组](./contents/basic/loopArray.md)
-7. [在 JavaScript 中循环枚举对象](./contents/basic/enumerateObject.md)
-8. [为什么不能使用 “for...in” 进行数组迭代？](./contents/basic/badForInArray.md)
-9. [怎么理解 JavaScript 中的 new ？](./contents/basic/new.md)
-10. [在 JavaScript 中如何检测 "invalid date" 日期？](./contents/basic/checkInvalidDate.md)
-11. [在 JavaScript 中如何将十进制转换为十六进制？](./contents/basic/hexadecimal.md)
-12. [如何创建一个 [1，2，3，4，N...] 的数组？](./contents/basic/arrayn.md)
-13. [JavaScript 是否有类似 range() 的方法，可以在边界内的生成一个范围？](./contents/basic/range.md)
-14. [在 JavaScript 中把字符转换成ASCII编码？](./contents/basic/ascii.md)
-15. [this 的运行原理？](./contents/basic/this.md)
+1. [“use strict” 是如何工作的？](./contents/basic/use_strict.md)
+2. [闭包是如何工作的？](./contents/basic/closures.md)
+3. [new 是如何工作的？](./contents/basic/new.md)
+4. [this 的运行原理？](./contents/basic/this.md)
+5. [在 JavaScript 中循环遍历数组](./contents/basic/loopArray.md)
+6. [在 JavaScript 中循环枚举对象](./contents/basic/enumerateObject.md)
+7. [sleep() 的 JavaScript 版本是什么？](./contents/basic/sleep.md)
+8. [如何检查一个空的 JavaScript 对象？](./contents/basic/emptyObject.md)
+9. [检查 JavaScript 对象中是否存在某个键？](./contents/basic/testKeyInBbject.md)
+10. [为什么不能使用 “for...in” 进行数组迭代？](./contents/basic/badForInArray.md)
+11. [在 JavaScript 中如何检测 "invalid date" 日期？](./contents/basic/checkInvalidDate.md)
+12. [在 JavaScript 中如何将十进制转换为十六进制？](./contents/basic/hexadecimal.md)
+13. [如何创建一个 [1，2，3，4，N...] 的数组？](./contents/basic/arrayn.md)
+14. [JavaScript 是否有类似 range() 的方法，可以在边界内的生成一个范围？](./contents/basic/range.md)
+15. [在 JavaScript 中如何把字符转换成ASCII编码？](./contents/basic/ascii.md)
 16. [在 JavaScript 中 addEventListener 和 onclick 之间有什么区别？](./contents/basic/onclick.md)
-17. [在 JavaScript 中 如何判断一个 number 是浮点数还是整数？](./contents/basic/integerVsFloat.md)
+17. [在 JavaScript 中如何判断一个 number类型 是浮点数还是整数？](./contents/basic/integerVsFloat.md)
 - todo ...
 
 > 进阶
@@ -84,5 +84,5 @@
 
 > Node.js
 
-1. [package.json中的tilde(~)和caret(^)有什么区别？](./contents/node/packageJSON.md)
+1. [package.json 中，版本前的符号 ~ 和 ^ 有什么区别？](./contents/node/packageJSON.md)
 - todo ...
