@@ -1,6 +1,6 @@
 ## 问题：在JavaScript中把字符转换成ASCII编码？
 
-如何用 JavaScript 将一个 string 转换成它的ASCII编码？
+如何用 JavaScript 将一个 `string` 转换成 `ASCII` 字符？
 
 例如：
 
@@ -10,7 +10,7 @@ get 10 from "\n".
 
 ## 答案：
 
-[String.prototype.charCodeAt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt) 可以将 string 字符转换为 `ASCII` 数字。
+[String.prototype.charCodeAt()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt) 可以将 string 字符转换为 `ASCII` 字符。
 
 相反，使用 [String.fromCharCode()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode) 可以将数字转换为相等的 `ASCII` 字符。这个函数可以接受多个数字并连接所有的字符然后返回字符串。
 
