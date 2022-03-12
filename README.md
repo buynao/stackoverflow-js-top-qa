@@ -69,7 +69,7 @@
 2. [Javascript 在哪里为函数调用的结果分配内存？堆栈还是堆？](./contents/advanced/heapAndStack.md)
 3. [什么时候应该使用encodeURI，而不是encodeURIComponent？](./contents/advanced/encode.md)
 4. [WebSocket 和 Socket.IO 之间的区别](./contents/advanced/socketVSwebscocket.md)
-5. [ES6 中引入的 WeakMap 实际用途是什么？](./contents/advanced/weakMap.md)
+5. [ES6 中 WeakMap 的实际用途是什么？](./contents/advanced/weakMap.md)
 - todo ...
 
 > Typescript
