@@ -45,7 +45,7 @@
 > 基础
 
 1. [“use strict” 是如何工作的？](./contents/basic/use_strict.md)
-2. [闭包是如何工作的？](./contents/basic/closures.md)
+2. [闭包 是如何工作的？](./contents/basic/closures.md)
 3. [new 是如何工作的？](./contents/basic/new.md)
 4. [this 的运行原理？](./contents/basic/this.md)
 5. [在 JavaScript 中循环遍历数组](./contents/basic/loopArray.md)
@@ -61,6 +61,7 @@
 15. [在 JavaScript 中如何把字符转换成ASCII编码？](./contents/basic/ascii.md)
 16. [在 JavaScript 中 addEventListener 和 onclick 之间有什么区别？](./contents/basic/onclick.md)
 17. [在 JavaScript 中如何判断一个 number类型 是浮点数还是整数？](./contents/basic/integerVsFloat.md)
+
 - todo ...
 
 > 进阶
@@ -70,21 +71,26 @@
 3. [什么时候应该使用encodeURI，而不是encodeURIComponent？](./contents/advanced/encode.md)
 4. [WebSocket 和 Socket.IO 之间的区别](./contents/advanced/socketVSwebscocket.md)
 5. [ES6 中 WeakMap 的实际用途是什么？](./contents/advanced/weakMap.md)
+6. [Promise 和 Observables 之间的区别](./contents/advanced/observable.md)
+
 - todo ...
 
 > Typescript
 
 1. [TypeScript是什么，为什么要用它来代替JavaScript？](./contents/typescript/index.md)
 2. [TypeScript中 接口(interface) 与 类型(type) 的区别是什么？](./contents/typescript/interface.md)
+
 - todo ...
 
 > React
 
 1. [React 中, state 和 props 的区别是什么？应该怎么使用？](./contents/react/stateVsProps.md)
 2. [React Context 和 React Redux 的区别是什么？应该怎么使用？](./contents/react/context.md)
+
 - todo ...
 
 > Node.js
 
 1. [package.json 中，版本前的符号 ~ 和 ^ 有什么区别？](./contents/node/packageJSON.md)
+
 - todo ...
