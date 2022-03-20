@@ -58,7 +58,8 @@
 14. [JavaScript 是否有类似 range() 的方法，可以在边界内的生成一个范围？](./contents/basic/range.md)
 15. [在 JavaScript 中如何把字符转换成ASCII编码？](./contents/basic/ascii.md)
 16. [在 JavaScript 中 addEventListener 和 onclick 之间有什么区别？](./contents/basic/onclick.md)
-17. [在 JavaScript 中如何判断一个 number类型 是浮点数还是整数？](./contents/basic/integerVsFloat.md)
+17. [在 JavaScript 中如何判断一个数值是浮点数还是整数？](./contents/basic/integerVsFloat.md)
+18. [为什么 ◎ܫ◎ 和 ☺ 不是有效的 JavaScript 变量名？](./contents/basic/variable.md)
 
 - todo ...
 
