@@ -60,6 +60,7 @@
 16. [在 JavaScript 中 addEventListener 和 onclick 之间有什么区别？](./contents/basic/onclick.md)
 17. [在 JavaScript 中如何判断一个数值是浮点数还是整数？](./contents/basic/integerVsFloat.md)
 18. [为什么 ◎ܫ◎ 和 ☺ 不是有效的 JavaScript 变量名？](./contents/basic/variable.md)
+19. [如何取消正在执行的 Promise ？](./contents/basic/promise.md)
 
 - todo ...
 
