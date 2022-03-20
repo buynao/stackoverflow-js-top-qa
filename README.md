@@ -61,6 +61,7 @@
 17. [在 JavaScript 中如何判断一个数值是浮点数还是整数？](./contents/basic/integerVsFloat.md)
 18. [为什么 ◎ܫ◎ 和 ☺ 不是有效的 JavaScript 变量名？](./contents/basic/variable.md)
 19. [如何取消正在执行的 Promise ？](./contents/basic/promise.md)
+20. [为什么 Promise 在 resolve 或 reject 后仍在继续执行？](./contents/basic/promiseExecute.md)
 
 - todo ...
 
