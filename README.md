@@ -87,7 +87,8 @@
 
 1. [React 中, state 和 props 的区别是什么？应该怎么使用？](./contents/react/stateVsProps.md)
 2. [React Context 和 React Redux 的区别是什么？应该怎么使用？](./contents/react/context.md)
-
+3. [React Hooks 中，如何在 useEffect 里比较 oldValues 和 newValues ？](./contents/react/diffValues.md)
+   
 - todo ...
 
 > Node.js
