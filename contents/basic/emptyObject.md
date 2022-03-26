@@ -15,9 +15,8 @@ var a = {};
 // 因为 Object.keys(new Date()).length === 0;
 // 所以还得做一些额外的检查
 obj // 👈 null and undefined check
-&& Object.keys(obj).length === 0
+&& Reflect.ownKeys(obj).length === 0 // 译者补充：增加非枚举属性判断
 && Object.getPrototypeOf(obj) === Object.prototype
-&& Object.getOwnPropertySymbols(obj).length === 0 // 译者补充：增加非枚举属性
 ```
 
 但是请注意，这会创建一个不必要的数组（`key` 的返回值）
@@ -49,3 +48,4 @@ _.isEmpty({}); // true
 // jquery
 jQuery.isEmptyObject({}); // true
 ```
+> 问题来源：[https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object](https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object)
