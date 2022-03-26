@@ -17,6 +17,7 @@ var a = {};
 obj // 👈 null and undefined check
 && Object.keys(obj).length === 0
 && Object.getPrototypeOf(obj) === Object.prototype
+&& Object.getOwnPropertySymbols(obj).length === 0 // 译者补充：增加非枚举属性
 ```
 
 但是请注意，这会创建一个不必要的数组（`key` 的返回值）
