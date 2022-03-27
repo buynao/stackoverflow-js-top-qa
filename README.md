@@ -95,5 +95,6 @@
 
 1. [package.json 中，版本前的符号 ~ 和 ^ 有什么区别？](./contents/node/packageJSON.md)
 2. [Node.js 中的 Buffer 最大容量限制是多少？](./contents/node/buffer.md)
+3. [在 v8 中，箭头函数比普通的函数声明更快（性能更强、更轻）？](./contents/node/arrowFunction.md)
 
 - todo ...
