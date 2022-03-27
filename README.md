@@ -94,5 +94,6 @@
 > Node.js
 
 1. [package.json 中，版本前的符号 ~ 和 ^ 有什么区别？](./contents/node/packageJSON.md)
+2. [Node.js 中的 Buffer 最大容量限制是多少？](./contents/node/buffer.md)
 
 - todo ...
