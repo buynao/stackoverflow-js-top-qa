@@ -60,4 +60,6 @@ useEffect(() => {
 }, [stateX, stateY])
 ```
 
+    根据React官方团队建议，按关注点分离 hooks，所以最好分成多个 useEffect 来进行管理调用。
+
 > 问题来源：[https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component](https://stackoverflow.com/questions/54002792/in-general-is-it-better-to-use-one-or-many-useeffect-hooks-in-a-single-component)

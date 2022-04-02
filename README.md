@@ -89,6 +89,7 @@
 2. [React Context 和 React Redux 的区别是什么？应该怎么使用？](./contents/react/context.md)
 3. [React Hooks 中，如何在 useEffect 里比较 oldValues 和 newValues ？](./contents/react/diffValues.md)
 4. [在组件中应该使用一个 useEffect 还是多个？](./contents/react/useEffect.md)
+5. [什么时候该使用 useImperativeHandle、useLayoutEffect 和 useDebugValue ?](./contents/react/useHooks.md)
 
 - todo ...
 
