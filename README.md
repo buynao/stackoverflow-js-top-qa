@@ -73,6 +73,7 @@
 4. [WebSocket 和 Socket.IO 之间的区别](./contents/advanced/socketVSwebscocket.md)
 5. [ES6 中 WeakMap 的实际用途是什么？](./contents/advanced/weakMap.md)
 6. [Promise 和 Observables 之间的区别](./contents/advanced/observable.md)
+7. [频繁调用 Performance API 会不会有性能问题？](./contents/advanced/Performance.md)
 
 - todo ...
 
