@@ -1,21 +1,20 @@
-## 怎么理解 JavaScript 中的 new ？
+## 问题：怎么理解 JavaScript 中的 new
 
-第一次遇到 `JavaScript` 中的 `new` 时很混乱，因为人们倾向于认为 `JavaScript` 不是一种面向对象的编程语言。
+通常大家认为 `JavaScript` 不是一种面向对象的编程语言，所以，在遇到 `new` 这个关键字时，会有一些疑惑
 
-- 它是什么？
+- 它是用来干什么的？
 - 它解决了哪些问题？
 - 什么时候用合适，什么时候不合适？
 
 ## 答案
 
-它做了 5 件事：
+它主要做了 5 件事：
 
-1. 创建了一个新对象 。这个对象的类型就是一个普通的空对象。
-2. 将这个新对象的内部、不可访问的 `[[prototype]]`（即 `__proto__` ）属性赋值为 `构造函数`的 `prototype`（每个函数对象都自动具有 `prototype` 属性）。
-3. 使 `构造函数` 内部的 `this` 指向新创建的对象。
-4. 执行 `构造函数` 的代码，只要执行到 `this` 相关，就将属性赋值给新对象
-5. 如果 `构造函数` 的执行结果返回的是一个对象，则返回该对象；否则，返回刚创建的新对象。
-
+1. 创建了一个新 `object`，这个 `object` 就是一个比较纯粹的 `{} object`。
+2. 将这个 `object` 内部、不可访问的 `[[prototype]]`（即 `__proto__` ）属性赋值为 `构造函数`的 `prototype`（每个函数对象都自动具有 `prototype` 属性）。
+3. 使 `构造函数` 内部的 `this` 指向新创建的 `object` 。
+4. 执行 `构造函数` 中的代码，只要执行到 `this` 相关，就将该属性赋值给新 `object` 。
+5. 如果 `构造函数` 的执行结果返回的也是一个 `object`，则直接返回；否则，返回刚创建的 `object`。
 
 注意：`构造函数` 是指 `new` 关键字后面的函数：
 
@@ -24,15 +23,15 @@
 new ConstructorFunction(arg1, arg2)
 ```
 
-得到新对象后，如果查询它的未知属性，将改为查询它的 `[[prototype]]` 对象上的属性。这就是在 `JavaScript` 中获得类似于传统类继承的方法。
+得到新 `object` 后，如果查询它的未知属性，将改为查询它的 `[[prototype]]` 对象上的属性。这就是在 `JavaScript` 中获得类似于传统类继承的方法。
 
 其中最难理解的部分是第 2 点。每个对象（包括函数）都有一个内部属性，叫做 `[[prototype]]`。
 
 它通常只在对象创建时被设置，要么用 `new`，要么用 `Object.create`，或者基于字面意思（函数默认为 `Function.prototype` ，数字为 `Number.prototype`，等等）。它只能通过 `Object.getPrototypeOf(someObject)` 读取。没有其他方法来设置或读取这个值。
 
-函数除了隐藏的 `[[prototype]]` 属性外，还有一个叫做 `prototype` 的属性，你可以随时访问和修改它，以便为你创建的对象提供继承的属性和方法。
+函数除了隐藏的 `[[prototype]]` 属性外，还有一个叫做 `prototype` 的属性，你可以对其随时访问和修改，以便为你创建的对象提供继承的属性和方法。
 
-**示例**
+### 示例
 
 ```js
 
@@ -98,3 +97,4 @@ obj2.a;
 我在这个问题上读了很多浪费时间的文章，最后才找到[这篇](https://zeekat.nl/articles/constructors-considered-mildly-confusing.html)，这里有很多漂亮的图表可以更好的解释这个问题。
 
 > 问题来源：[https://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript](https://stackoverflow.com/questions/1646698/what-is-the-new-keyword-in-javascript)
+
